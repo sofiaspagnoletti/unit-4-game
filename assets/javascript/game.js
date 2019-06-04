@@ -35,6 +35,16 @@ function writeGameStatus() {
     $("#total-sum").text("Your current sum is: " + currentSum);
 }
 
+function reactToNewSum() {
+    $("#total-sum").text("Your current sum is: " + currentSum);
+    if (currentSum === goal) {
+        win();
+    }
+    else if (currentSum > goal) {
+        lose();
+    }
+}
+
 resetGame();
 
 $(document).ready(function () {
@@ -46,46 +56,22 @@ $(document).ready(function () {
 
     $(".gem1").on("click", function () {
         currentSum = currentSum + gem1;
-        $("#total-sum").text("Your current sum is: " + currentSum);
-        if (currentSum === goal) {
-            win();
-        }
-        else if (currentSum > goal) {
-            lose();
-        }
+        reactToNewSum();
     });
 
     $(".gem2").on("click", function () {
         currentSum = currentSum + gem2;
-        $("#total-sum").text("Your current sum is: " + currentSum);
-        if (currentSum === goal) {
-            win();
-        }
-        else if (currentSum > goal) {
-            lose();
-        }
+        reactToNewSum();
     });
 
     $(".gem3").on("click", function () {
         currentSum = currentSum + gem3;
-        $("#total-sum").text("Your current sum is: " + currentSum);
-        if (currentSum === goal) {
-            win();
-        }
-        else if (currentSum > goal) {
-            lose();
-        }
+        reactToNewSum();
     });
 
     $(".gem4").on("click", function () {
         currentSum = currentSum + gem4;
-        $("#total-sum").text("Your current sum is: " + currentSum);
-        if (currentSum === goal) {
-            win();
-        }
-        else if (currentSum > goal) {
-            lose();
-        }
+        reactToNewSum();
     });
 
 

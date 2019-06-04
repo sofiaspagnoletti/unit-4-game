@@ -32,11 +32,15 @@ function writeGameStatus() {
     $("#wins").text("Wins: " + wins);
     $("#losses").text("Losses: " + losses);
     $("#goal").text("Goal: " + goal);
-    $("#total-sum").text("Your current sum is: " + currentSum);
+    setNewSum(currentSum);
+}
+
+function setNewSum(value) {
+    $("#total-sum").text("Your current sum is: " + value);
 }
 
 function reactToNewSum() {
-    $("#total-sum").text("Your current sum is: " + currentSum);
+    setNewSum(currentSum);
     if (currentSum === goal) {
         win();
     }
@@ -56,34 +60,22 @@ $(document).ready(function () {
 
     $(".gem1").on("click", function () {
         currentSum = currentSum + gem1;
-        reactToNewSum();
     });
 
     $(".gem2").on("click", function () {
         currentSum = currentSum + gem2;
-        reactToNewSum();
     });
 
     $(".gem3").on("click", function () {
         currentSum = currentSum + gem3;
-        reactToNewSum();
     });
 
     $(".gem4").on("click", function () {
         currentSum = currentSum + gem4;
+    });
+
+    $(".gem").on("click", function () {
         reactToNewSum();
     });
 
-
 });
-
-
-
-// function writeGameStatus() {
-//     document.querySelector('#randomComputerNum').innerHTML = randomComputerNum.join(" ");
-//     document.querySelector('#wins').innerHTML = "Wins: " + wins;
-//     document.querySelector('#losses').innerHTML = "Losses: " + losses;
-// }
-
-// var computerRandomNumber = [];
-// writeGameStatus();

@@ -15,6 +15,7 @@ function resetGame() {
     gem2 = Math.floor((Math.random() * 12) + 1);
     gem3 = Math.floor((Math.random() * 12) + 1);
     gem4 = Math.floor((Math.random() * 12) + 1);
+    writeGameStatus();
 }
 
 function win() {
@@ -27,7 +28,14 @@ function lose() {
     resetGame();
 }
 
+function writeGameStatus() {
+    $("#wins").text("Wins: " + wins);
+    $("#losses").text("Losses: " + losses);
+    $("#goal").text("Goal: " + goal);
+    $("#total-sum").text("Your current sum is: " + currentSum);
+}
 
+resetGame();
 
 $(document).ready(function () {
 
@@ -36,33 +44,51 @@ $(document).ready(function () {
         $("#goal").text("Goal: " + goal);
     });
 
-    $(".gem1").on("click", function() {
+    $(".gem1").on("click", function () {
         currentSum = currentSum + gem1;
         $("#total-sum").text("Your current sum is: " + currentSum);
+        if (currentSum === goal) {
+            win();
+        }
+        else if (currentSum > goal) {
+            lose();
+        }
     });
 
-    $(".gem2").on("click", function() {
-        currentSum = currentSum + gem1;
+    $(".gem2").on("click", function () {
+        currentSum = currentSum + gem2;
         $("#total-sum").text("Your current sum is: " + currentSum);
+        if (currentSum === goal) {
+            win();
+        }
+        else if (currentSum > goal) {
+            lose();
+        }
     });
 
-    $(".gem3").on("click", function() {
-        currentSum = currentSum + gem1;
+    $(".gem3").on("click", function () {
+        currentSum = currentSum + gem3;
         $("#total-sum").text("Your current sum is: " + currentSum);
+        if (currentSum === goal) {
+            win();
+        }
+        else if (currentSum > goal) {
+            lose();
+        }
     });
 
-    $(".gem4").on("click", function() {
-        currentSum = currentSum + gem1;
+    $(".gem4").on("click", function () {
+        currentSum = currentSum + gem4;
         $("#total-sum").text("Your current sum is: " + currentSum);
+        if (currentSum === goal) {
+            win();
+        }
+        else if (currentSum > goal) {
+            lose();
+        }
     });
 
-    // $(".crystalNumber").click(function () {
-    //     // $("#randomComputerNum").innerText = Math.floor((Math.random() * 12) + 1);
-    //     // $(Math.floor((Math.random() * 12) + 1));
-    //     // document.getElementById("crystalNumber").innerHTML = x;
-    // });
 
-    
 });
 
 

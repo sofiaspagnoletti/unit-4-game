@@ -49,13 +49,11 @@ function reactToNewSum() {
     }
 }
 
-resetGame();
 
 $(document).ready(function () {
 
     $("#start").on("click", function () {
         resetGame();
-        $("#goal").text("Goal: " + goal);
     });
 
     $(".gem1").on("click", function () {
